@@ -53,7 +53,7 @@ void quicks(int *array, size_t start, size_t end, size_t size)
 	}
 	if (j - start > 1)
 		quicks(array, start, j - 1, size);
-	if (end - k > 1)
+	if (end - j > 1)
 		quicks(array, j + 1, end, size);
 }
 
