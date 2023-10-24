@@ -92,5 +92,5 @@ void radix_sort(int *array, size_t size)
 {
 	if (size < 2)
 		return;
-	csort(array, size, 1);
+	sorts(array, size, 1);
 }
