@@ -66,7 +66,7 @@ char getval(deck_node_t *card)
 /**
  * kind - Sort a deck of cards
  * @deck: pointer
- * Return: nothing 
+ * Return: nothing
  */
 void kind(deck_node_t **deck)
 {
