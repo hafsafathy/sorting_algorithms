@@ -71,16 +71,16 @@ void mergePart(size_t dwn, size_t top, int *array, int *b)
  */
 void merge_sort(int *array, size_t size)
 {
-        size_t i = 0;
-        int *b = NULL;
+	size_t i = 0;
+	int *b = NULL;
 
-        if (array == NULL || size < 2)
-                return;
-        b = malloc(sizeof(int) * size);
-        if (b == NULL)
-                return;
-        for (; i < size; i++)
-                b[i] = array[i];
-        mergePart(0, size, array, b);
-        free(b);
+	if (array == NULL || size < 2)
+		return;
+	b = malloc(sizeof(int) * size);
+	if (b == NULL)
+		return;
+	for (; i < size; i++)
+		b[i] = array[i];
+	mergePart(0, size, array, b);
+	free(b);
 }
