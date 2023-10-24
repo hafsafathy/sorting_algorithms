@@ -1,38 +1,49 @@
 #include "sort.h"
+#include <stdio.h>
 
 /**
-  * shell_sort - function that sorts an array of integers in
-  * ascending order using the Shell sort algorithm, using the Knuth sequence
-  * @array: array.
-  * @size: length of the array.
-  * Return: Nothing.
-  */
+ * swaps - swaps 2 item
+ * @array: array
+ * @r: right index
+ * @l: left index
+ * Return: Nothing
+ */
+void swaps(int *array, int r, int l)
+{
+	int t;
+
+	if (array[r] != array[l])
+	{
+		t = array[r];
+		array[r] = array[l];
+		array[l] = t;
+	}
+}
+
+/**
+ * shell_sort - function that sorts an array of integers
+ * in ascending order using the Shell sort algorithm
+ * , using the Knuth sequence
+ * @array: array
+ * @size: Size of the array
+ * Return: Nothing
+ */
 void shell_sort(int *array, size_t size)
 {
-	unsigned int i = 0, j = 0, k = 0;
-	int a = 0;
+	size_t n = 0,  i, j;
 
-	if (array == NULL || size < 2)
+	if (size < 2)
 		return;
 
-	while (k < size / 3)
-		k = k * 3 + 1;
+	while (n <= size / 3)
+		n = n * 3 + 1;
 
-	for (; k > 0; k = (k - 1) / 3)
+	while (n >= 1)
 	{
-		for (i = k; i < size; i++)
-		{
-			a = array[i];
-			for (j = i; j >= k && array[j - k] > a;
-					j -= k)
-			{
-				if (array[j] != array[j - k])
-					array[j] = array[j - k];
-			}
-			if (array[j] != a)
-				array[j] = a;
-
-		}
+		for (i = n; i < size; i++)
+			for (j = i; j >= n && array[j] < array[j - n]; j -= n)
+				_swap(array, j, j - n);
+		n /= 3;
 		print_array(array, size);
 	}
 }
