@@ -3,29 +3,6 @@
 #include <stdio.h>
 
 /**
- * merge_sort - function that sorts an array of
- *  integers in ascending order using the Merge sort algorithm
- * @array: array
- * @size: size of the array
- * Return: Nothing
- */
-void merge_sort(int *array, size_t size)
-{
-	size_t i = 0;
-	int *b = NULL;
-
-	if (array == NULL || size < 2)
-		return;
-	b = malloc(sizeof(int) * size);
-	if (b == NULL)
-		return;
-	for (; i < size; i++)
-		b[i] = array[i];
-	mergePart(0, size, array, b);
-	free(b);
-}
-
-/**
  * merge - function that sorts the subarrays.
  * @dwn: Lower index.
  * @m: Middle index.
@@ -83,4 +60,27 @@ void mergePart(size_t dwn, size_t top, int *array, int *b)
 	merge(dwn, m, top, array, b);
 	for (m = dwn; m < top; m++)
 		b[m] = array[m];
+}
+
+/**
+ * merge_sort - function that sorts an array of
+ * integers in ascending order using the Merge sort algorithm
+ * @array: array
+ * @size: size of the array
+ * Return: Nothing
+ */
+void merge_sort(int *array, size_t size)
+{
+        size_t i = 0;
+        int *b = NULL;
+
+        if (array == NULL || size < 2)
+                return;
+        b = malloc(sizeof(int) * size);
+        if (b == NULL)
+                return;
+        for (; i < size; i++)
+                b[i] = array[i];
+        mergePart(0, size, array, b);
+        free(b);
 }
